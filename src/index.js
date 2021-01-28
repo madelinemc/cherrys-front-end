@@ -1,11 +1,13 @@
-const newCustomerForm = document.querySelector('')
 const createBr = document.createElement("br");
 
-//on page load - view of only logo + get started form
-//grab get started form const = newCustomerForm
-//add event listender to newCustomerForm submit
+//on page load - view of only logo + getStartedButton which dynamically renders newCustomerForm
+//grab getStartedButton
+//add event listener to getStartedButton, on click callback function makeNewCustomerForm
+//add event listener to newCustomerForm submit
 //with inline callback function of fetch request to post to /customers
 
+const getStartedButton = document.getElementsByTagName("button")[0];
+getStartedButton.addEventListener("click", makeNewCustomerForm);
 
 function makeNewCustomerForm() {
     let newCustomerForm = document.createElement("form");
@@ -26,15 +28,25 @@ function makeNewCustomerForm() {
     newCustomerSubmit.setAttribute("type", "submit");
     newCustomerSubmit.setAttribute("value", "submit");
 
-    newCustomerForm.appendChild(newCustomerName);
-    newCustomerForm.appendChild(createBr);
+        newCustomerForm.appendChild(newCustomerName);
+        newCustomerForm.appendChild(createBr);
 
-    newCustomerForm.appendChild(newCustomerPhoneNumber);
-    newCustomerForm.appendChild(createBr);
+        newCustomerForm.appendChild(newCustomerPhoneNumber);
+        newCustomerForm.appendChild(createBr);
 
-    newCustomerForm.appendChild(newCustomerSubmit);
+        newCustomerForm.appendChild(newCustomerSubmit);
 
-    document.getElementsByClassName("grid center").appendChild(newCustomerForm);
+        document.getElementsByClassName("grid center")[0]
+    .appendChild(newCustomerForm);
 }
+const header = document.getElementsByClassName('grid header')
 
 
+// fetch("http://localhost:3000/customers")
+//     .then(function(response){
+//         return response.json()
+//     })
+//     .then(function(customerObj){
+//         header.innerHTML += `
+//         <h1>${customerObj.name} screams for ice cream!</h1>`
+//     })
