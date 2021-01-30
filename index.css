@@ -1,8 +1,11 @@
 body {
     text-align: center;
     font-family: ;
-    background: rgb(255,255,255);
-    background: linear-gradient(6deg, rgba(255,255,255,1) 3%, rgba(249,217,252,1) 100%); 
+    /* background: linear-gradient(6deg, rgba(255,255,255,1) 3%, rgba(249,217,252,1) 100%); */
+    /* background: rgb(250,196,254);
+    background: linear-gradient(200deg, rgba(250,196,254,1) 50%, rgba(209,145,254,1) 100%); */
+    background: rgb(250,196,254);
+    background: linear-gradient(225deg, rgba(250,196,254,1) 38%, rgba(244,229,255,1) 100%);
 }
 
 /* grid */
@@ -15,7 +18,7 @@ body {
 }
 
 .grid {
-    background-color: white;
+    background-color: transparent;
     color: white;
     padding: 25px;
 }
@@ -23,7 +26,6 @@ body {
 .header {
     grid-column: 1 / 4;
     grid-row-start: 1 / 2;
-    background-color: #55D4EB;
 }
 
 .builder-toppings {
@@ -48,7 +50,6 @@ body {
     grid-column: 2 / 3;
     grid-row-start: 2;
     grid-row-end: 5;
-    background-color: #53ebd1;
 }
 
 .viewer {
@@ -61,7 +62,6 @@ body {
 .footer {
     grid-column: 1 / 4;
     grid-row-start: 5 / 6;
-    background-color: #F3CDDD;
 }
 
 /* text&font */
@@ -72,16 +72,51 @@ p {
     font-family: 'Work Sans', sans-serif;
 }
 
-h1 {
+h1 {    
     font-family: 'Raleway Dots', cursive;
 }
 
-
-/* buttons */
-#solid-ombre-btn {
-
+.decorative-text {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1.75em;
+    color: #fe2844;
 }
 
-#outline-ombre-btn {
 
+
+
+/* buttons */
+.solid-ombre-btn {
+    background: -webkit-linear-gradient(right, #fe2844, #ff22b5, #d191fe);
+    border: none;
+    border-radius: 21px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    width: 153px;
+    height: 42.3px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.outline-ombre-btn {
+    border-radius: 100rem;
+    padding: 1rem;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    padding: .5rem 3rem;
+    color: #fe2844;
+    box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+    border: solid 3px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #d191fe, #ff22b5, #fe2844);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px rgba(250,196,254,1) inset;
+    cursor: pointer;
+}
+
+.outline-ombre-btn:hover {
+    box-shadow: none;
+    color: white;
 }

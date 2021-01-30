@@ -31,7 +31,8 @@ function makeNewCustomerForm() {
     let newCustomerSubmit = document.createElement("input");
     newCustomerSubmit.setAttribute("type", "submit");
     newCustomerSubmit.setAttribute("id", "new-customer-submit");
-    newCustomerSubmit.setAttribute("value", "submit");
+    newCustomerSubmit.setAttribute("class", "outline-ombre-btn");
+    newCustomerSubmit.setAttribute("value", "SUBMIT");
 
         newCustomerForm.appendChild(newCustomerName);
         newCustomerForm.appendChild(createBr);
@@ -77,6 +78,8 @@ function fetchMakeNewCustomer(e) {
         //iterate over if collection
         //this is the point where you can store the user id in data-id=${customer.id}
     })
+
+    
             // header.innerHTML += 
             //`<h1>${customerObj.name} screams for ice cream!</h1>`
         // .catch(function(error) {
