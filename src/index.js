@@ -6,6 +6,8 @@ const createBr = document.createElement("br");
 //add event listener to newCustomerForm submit
 //with inline callback function of fetch request to post to /customers
 
+
+//making new customer:
 const showCustomerForm = true //to prevent making multiple
 const getStartedButton = document.getElementById("get-started-button");
 getStartedButton.addEventListener("click", makeNewCustomerForm);
@@ -50,11 +52,17 @@ function makeNewCustomerForm() {
 
 }
 
+function renderOrderView(e){
+    e.preventDefault();
+    fetchMakeNewCustomer();
+    makeAndRenderComponents();
+    fetchMakeNewOrder();
+}
 
 const header = document.getElementsByClassName("grid header")[0];
 
-function fetchMakeNewCustomer(e) {
-    e.preventDefault(); //dont go to url do code below first
+function fetchMakeNewCustomer() {
+    // e.preventDefault(); //dont go to url do code below first
 
     let newCustomerNameValue = document.getElementById("new-customer-name").value
     let newCustomerPhoneValue = document.getElementById("new-customer-phone").value
@@ -79,48 +87,44 @@ function fetchMakeNewCustomer(e) {
         //this is the point where you can store the user id in data-id=${customer.id}
     })
 
-    
-            // header.innerHTML += 
+}
+
+function makeAndRenderComponents(){
+
+    Flavor.fetchAndMakeFlavors();
+    //render flavors
+
+    ToppingType.fetchAndMakeToppingTypes();
+    //render toppings
+
+    //fetch and make bases
+    //render bases
+}
+
+//fetching flavors and toppings
+
+
+
+//
+
+           // header.innerHTML += 
             //`<h1>${customerObj.name} screams for ice cream!</h1>`
         // .catch(function(error) {
         //     alert("there were errors"); //come back to this
         // })
 
-    function fetchAndMakeFlavors(){
-        return fetch("http://localhost:3000/flavors")
-        .then(resp=> resp.json())
-        .then(function(flavorsArray){
-            return flavorsArray.forEach(function(flavor){
-                return new Flavor(flavor)
-            })
-        })
-    }
 
-    function renderFlavors(){
-        
-    }
- 
-    function fetchAndMakeToppingTypes(){
-        return fetch("http://localhost:3000/topping_types")
-        .then(resp=> resp.json())
-        .then(function(toppingTypesArray){
-            return toppingTypesArray.forEach(function(toppingType){
-                return new ToppingType(toppingType)
-            })
-        })
-    }
-
-    const toppingsLayout = `
+function renderFlavors(){
     
-    `
-    
-
-    function renderToppingTypes(){
-        const gridToppingsBuilder = document.getElementById("grid-builder-toppings")
-        gridToppingsBuilder.innerHTML = toppingsLayout;
-    }
+}
 
 
+const toppingsLayout = `
+
+`
 
 
+function renderToppingTypes(){
+    const gridToppingsBuilder = document.getElementById("grid-builder-toppings")
+    gridToppingsBuilder.innerHTML = toppingsLayout;
 }
