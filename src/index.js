@@ -86,6 +86,40 @@ function fetchMakeNewCustomer(e) {
         //     alert("there were errors"); //come back to this
         // })
 
+    function fetchAndMakeFlavors(){
+        return fetch("http://localhost:3000/flavors")
+        .then(resp=> resp.json())
+        .then(function(flavorsArray){
+            return flavorsArray.forEach(function(flavor){
+                return new Flavor(flavor)
+            })
+        })
+    }
+
+    function renderFlavors(){
+        
+    }
+ 
+    function fetchAndMakeToppingTypes(){
+        return fetch("http://localhost:3000/topping_types")
+        .then(resp=> resp.json())
+        .then(function(toppingTypesArray){
+            return toppingTypesArray.forEach(function(toppingType){
+                return new ToppingType(toppingType)
+            })
+        })
+    }
+
+    const toppingsLayout = `
+    
+    `
+    
+
+    function renderToppingTypes(){
+        const gridToppingsBuilder = document.getElementById("grid-builder-toppings")
+        gridToppingsBuilder.innerHTML = toppingsLayout;
+    }
+
 
 
 
