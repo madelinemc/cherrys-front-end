@@ -96,19 +96,25 @@ function clearLandingSetBuilderView() {
 }
 
 
-// function makeAndRenderComponents(){
+function makeAndRenderComponents(){
 
-//     Flavor.fetchAndMakeFlavors();
-//     .then(function(){
+    let gridToppingBuilder = document.getElementById("grid-builder-toppings")
+    let gridScoopBuilder = document.getElementById("grid-builder-scoops")
+    let gridBaseBuilder = document.getElementById("grid-builder-base")
 
-//     })
+    Flavor.fetchAndMakeFlavors();
+    .then(function(){
+        Flavor.all.array.forEach(element => {
+            ``
+        });
+    })
 
-//     ToppingType.fetchAndMakeToppingTypes();
-    //render toppings
+    ToppingType.fetchAndMakeToppingTypes();
+    // render toppings
 
-    //fetch and make bases
-    //render bases
-// }
+    // fetch and make bases
+    // render bases
+}
 
 
 
