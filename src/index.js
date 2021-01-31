@@ -44,7 +44,7 @@ function makeNewCustomerForm() {
 
         newCustomerForm.appendChild(newCustomerSubmit);
 
-        document.getElementsByClassName("grid center")[0]
+        document.getElementsByClassName("grid landing")[0]
     .appendChild(newCustomerForm);
 
     newCustomerSubmitButton = document.getElementById("new-customer-submit");

@@ -28,6 +28,12 @@ body {
     grid-row-start: 1 / 2;
 }
 
+.landing {
+    grid-column: 1 / 4;
+    grid-row-start: 2;
+    grid-row-end: 5;
+}
+
 .builder-toppings {
     grid-column: 1 / 2;
     grid-row-start: 2 / 3;
