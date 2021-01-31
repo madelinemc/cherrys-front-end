@@ -11,7 +11,7 @@ class Order {
 
     static fetchMakeNewOrder(){
 
-        let customerIdValue = document.getElementById("grid-viewer").getAttribute("data-customer-id")
+        let customerIdValue = document.getElementById("container").getAttribute("data-customer-id")
 
         fetch("http://localhost:3000/orders", {
             method: "POST",
@@ -26,7 +26,7 @@ class Order {
         .then(resp=> resp.json())
         .then(function(orderObj){
             let order = new Order(orderObj.id, orderObj["customer_id"], "")
-            
+            document.getElementById("container").setAttribute("data-order-id", `${order.id}`)
         })
     }
     

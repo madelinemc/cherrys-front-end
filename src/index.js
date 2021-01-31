@@ -84,7 +84,7 @@ function fetchMakeNewCustomer() {
         console.log(json)
         customer = new Customer(json.id, json.name, json.phone_number)
         
-        document.getElementById("grid-viewer").setAttribute("data-customer-id", `${customer.id}`);
+        document.getElementById("container").setAttribute("data-customer-id", `${customer.id}`);
         
         //iterate over if collection
         //this is the point where you can store the user id in data-id=${customer.id}
