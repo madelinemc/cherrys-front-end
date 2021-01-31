@@ -1,12 +1,5 @@
 const createBr = document.createElement("br");
 
-//on page load - view of only logo + getStartedButton which dynamically renders newCustomerForm
-//grab getStartedButton
-//add event listener to getStartedButton, on click callback function makeNewCustomerForm
-//add event listener to newCustomerForm submit
-//with inline callback function of fetch request to post to /customers
-
-
 //making new customer:
 const showCustomerForm = true //to prevent making multiple
 const getStartedButton = document.getElementById("get-started-button");
@@ -54,14 +47,13 @@ function makeNewCustomerForm() {
 
 function renderOrderView(e){
     e.preventDefault()
-    fetchMakeNewCustomer()
+    fetchMakeNewCustomerAndOrder()
+    clearLandingSetBuilderView()
     // makeAndRenderComponents()
    
 };
 
-const header = document.getElementsByClassName("grid header")[0];
-
-function fetchMakeNewCustomer() {
+function fetchMakeNewCustomerAndOrder() {
     // e.preventDefault(); //dont go to url do code below first
 
     let newCustomerNameValue = document.getElementById("new-customer-name").value
@@ -94,22 +86,29 @@ function fetchMakeNewCustomer() {
     })
 };
 
+function clearLandingSetBuilderView() {
+    document.getElementById("grid-landing").hidden = true;
+    document.getElementById("grid-builder-toppings").hidden = false;
+    document.getElementById("grid-builder-scoops").hidden = false;
+    document.getElementById("grid-builder-base").hidden = false;
+    document.getElementById("grid-center").hidden = false;
+    document.getElementById("grid-viewer").hidden = false;
+}
 
 
+// function makeAndRenderComponents(){
 
+//     Flavor.fetchAndMakeFlavors();
+//     .then(function(){
 
+//     })
 
-function makeAndRenderComponents(){
-
-    Flavor.fetchAndMakeFlavors();
-    //render flavors
-
-    ToppingType.fetchAndMakeToppingTypes();
+//     ToppingType.fetchAndMakeToppingTypes();
     //render toppings
 
     //fetch and make bases
     //render bases
-}
+// }
 
 
 
