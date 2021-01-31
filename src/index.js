@@ -48,16 +48,16 @@ function makeNewCustomerForm() {
     .appendChild(newCustomerForm);
 
     newCustomerSubmitButton = document.getElementById("new-customer-submit");
-    newCustomerSubmitButton.addEventListener("click", fetchMakeNewCustomer);
+    newCustomerSubmitButton.addEventListener("click", renderOrderView);
 
 }
 
 function renderOrderView(e){
-    e.preventDefault();
-    fetchMakeNewCustomer();
-    makeAndRenderComponents();
-    fetchMakeNewOrder();
-}
+    e.preventDefault()
+    fetchMakeNewCustomer()
+    // makeAndRenderComponents()
+   
+};
 
 const header = document.getElementsByClassName("grid header")[0];
 
@@ -83,11 +83,21 @@ function fetchMakeNewCustomer() {
     .then(function(json){
         console.log(json)
         customer = new Customer(json.id, json.name, json.phone_number)
+        
+        document.getElementById("grid-viewer").setAttribute("data-customer-id", `${customer.id}`);
+        
         //iterate over if collection
         //this is the point where you can store the user id in data-id=${customer.id}
     })
+    .then(function(){
+        Order.fetchMakeNewOrder() 
+    })
+};
 
-}
+
+
+
+
 
 function makeAndRenderComponents(){
 
@@ -101,30 +111,22 @@ function makeAndRenderComponents(){
     //render bases
 }
 
+
+
 //fetching flavors and toppings
 
 
-
-//
-
-           // header.innerHTML += 
-            //`<h1>${customerObj.name} screams for ice cream!</h1>`
-        // .catch(function(error) {
-        //     alert("there were errors"); //come back to this
-        // })
-
-
-function renderFlavors(){
+// function renderFlavors(){
     
-}
+// }
 
 
-const toppingsLayout = `
+// const toppingsLayout = `
 
-`
+// `
 
 
-function renderToppingTypes(){
-    const gridToppingsBuilder = document.getElementById("grid-builder-toppings")
-    gridToppingsBuilder.innerHTML = toppingsLayout;
-}
+// function renderToppingTypes(){
+//     const gridToppingsBuilder = document.getElementById("grid-builder-toppings")
+//     gridToppingsBuilder.innerHTML = toppingsLayout;
+// }

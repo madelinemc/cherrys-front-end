@@ -22,9 +22,5 @@ class Flavor{
             })
         })
     }
-
-    static renderFlavors(){
-
-    }
     
 }
