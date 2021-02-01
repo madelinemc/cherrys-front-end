@@ -8,11 +8,19 @@ function onDragOver(event) {
 }
 
 function onDrop(event) {
-    const id = event.dataTransfer.getData('text')
+    const validDropzone = document.getElementById("grid-viewer")
 
-    const draggableElement = document.getElementById(id)
-    const dropzone = event.target
-    dropzone.appendChild(draggableElement)
+    if (event.target === validDropzone) {
+
+        const id = event.dataTransfer.getData('text')
+
+        const draggableElement = document.getElementById(id)
+        const dropzone = event.target
+        dropzone.appendChild(draggableElement)
+
+    } else {
+        event.preventDefault()
+    }
 
     event.dataTransfer.clearData();
 }
