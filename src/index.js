@@ -49,12 +49,11 @@ function renderOrderView(e){
     e.preventDefault()
     fetchMakeNewCustomerAndOrder()
     clearLandingSetBuilderView()
-    // makeAndRenderComponents()
+    makeAndRenderComponents()
    
 };
 
 function fetchMakeNewCustomerAndOrder() {
-    // e.preventDefault(); //dont go to url do code below first
 
     let newCustomerNameValue = document.getElementById("new-customer-name").value
     let newCustomerPhoneValue = document.getElementById("new-customer-phone").value
@@ -73,13 +72,8 @@ function fetchMakeNewCustomerAndOrder() {
 
     .then(resp=> resp.json())
     .then(function(json){
-        console.log(json)
         customer = new Customer(json.id, json.name, json.phone_number)
-        
         document.getElementById("container").setAttribute("data-customer-id", `${customer.id}`);
-        
-        //iterate over if collection
-        //this is the point where you can store the user id in data-id=${customer.id}
     })
     .then(function(){
         Order.fetchMakeNewOrder() 
@@ -97,41 +91,7 @@ function clearLandingSetBuilderView() {
 
 
 function makeAndRenderComponents(){
-
-    let gridToppingBuilder = document.getElementById("grid-builder-toppings")
-    let gridScoopBuilder = document.getElementById("grid-builder-scoops")
-    let gridBaseBuilder = document.getElementById("grid-builder-base")
-
-    Flavor.fetchAndMakeFlavors();
-    .then(function(){
-        Flavor.all.array.forEach(element => {
-            ``
-        });
-    })
-
-    ToppingType.fetchAndMakeToppingTypes();
-    // render toppings
-
-    // fetch and make bases
-    // render bases
+    Flavor.fetchAndMakeFlavors()
+    ToppingType.fetchAndMakeToppingTypes()
+    BaseType.fetchAndMakeBaseTypes()
 }
-
-
-
-//fetching flavors and toppings
-
-
-// function renderFlavors(){
-    
-// }
-
-
-// const toppingsLayout = `
-
-// `
-
-
-// function renderToppingTypes(){
-//     const gridToppingsBuilder = document.getElementById("grid-builder-toppings")
-//     gridToppingsBuilder.innerHTML = toppingsLayout;
-// }

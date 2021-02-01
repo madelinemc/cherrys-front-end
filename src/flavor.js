@@ -13,12 +13,22 @@ class Flavor{
     }
 
     static fetchAndMakeFlavors(){
+
+        let gridScoopBuilder = document.getElementById("scoop-container")
+        
         return fetch("http://localhost:3000/flavors")
         .then(resp=> resp.json())
         .then(function(flavorsArray){
             console.log(flavorsArray)
             return flavorsArray.forEach(function(flavor){
                 return new Flavor(flavor)
+            })
+        })
+        .then(function(){
+            Flavor.all.forEach(flavor => {
+                gridScoopBuilder.innerHTML += `
+                <img src="./public/images/${flavor.name}.png" class="builder-image">
+                `
             })
         })
     }

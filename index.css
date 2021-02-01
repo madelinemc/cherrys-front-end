@@ -37,19 +37,37 @@ body {
 .builder-toppings {
     grid-column: 1 / 2;
     grid-row-start: 2 / 3;
-    background-color: #d1fc81;
+}
+
+.topping-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .builder-scoops {
     grid-column: 1 / 2;
     grid-row-start: 3 / 4;
-    background-color: #D5c9e2;
+}
+
+.scoop-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .builder-base {
     grid-column: 1 / 2;
     grid-row-start: 4 / 5;
-    background-color: #fcda75;
+}
+
+.base-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
 }
 
 .center {
@@ -70,12 +88,24 @@ body {
     grid-row-start: 5 / 6;
 }
 
+.builder-image {
+    max-width: 26%;
+    min-width: 30px;
+    /* max-height: 40%; */
+    margin: auto;
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 /* text&font */
 @import url('https://fonts.googleapis.com/css2?family=Raleway+Dots&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap');
 
 p {
     font-family: 'Work Sans', sans-serif;
+    margin-top: 0px;
+    margin-bottom: 5px;
 }
 
 h1 {    
@@ -86,6 +116,7 @@ h1 {
     font-family: 'Work Sans', sans-serif;
     font-size: 1.75em;
     color: #fe2844;
+    margin: 3px;
 }
 
 
