@@ -50,7 +50,6 @@ function renderOrderView(e){
     fetchMakeNewCustomerAndOrder()
     clearLandingSetBuilderView()
     makeAndRenderComponents()
-   
 };
 
 function fetchMakeNewCustomerAndOrder() {
@@ -87,8 +86,8 @@ function clearLandingSetBuilderView() {
     document.getElementById("grid-builder-base").hidden = false;
     document.getElementById("grid-center").hidden = false;
     document.getElementById("grid-viewer").hidden = false;
+    document.getElementById("place-order-button").hidden = false;
 }
-
 
 function makeAndRenderComponents(){
     Flavor.fetchAndMakeFlavors()
