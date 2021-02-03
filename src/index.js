@@ -48,7 +48,7 @@ function makeNewCustomerForm() {
 function renderOrderView(e){
     e.preventDefault()
     fetchMakeNewCustomerAndOrder()
-    clearLandingSetBuilderView()
+    toggleLandingBuilderView(false)
     makeAndRenderComponents()
 };
 
@@ -73,24 +73,41 @@ function fetchMakeNewCustomerAndOrder() {
     .then(function(json){
         customer = new Customer(json.id, json.name, json.phone_number)
         document.getElementById("container").setAttribute("data-customer-id", `${customer.id}`);
+        console.log(customer.id)
     })
     .then(function(){
         Order.fetchMakeNewOrder() 
     })
 };
 
-function clearLandingSetBuilderView() {
-    document.getElementById("grid-landing").hidden = true;
-    document.getElementById("grid-builder-toppings").hidden = false;
-    document.getElementById("grid-builder-scoops").hidden = false;
-    document.getElementById("grid-builder-base").hidden = false;
-    document.getElementById("grid-center").hidden = false;
-    document.getElementById("grid-viewer").hidden = false;
-    document.getElementById("place-order-button").hidden = false;
+function toggleLandingBuilderView(showLandingPage) { //boolean true for show landing page, false for hide landing page show builder view
+    document.getElementById("grid-landing").hidden = !showLandingPage;
+    document.getElementById("grid-builder-toppings").hidden = showLandingPage;
+    document.getElementById("grid-builder-scoops").hidden = showLandingPage;
+    document.getElementById("grid-builder-base").hidden = showLandingPage;
+    document.getElementById("grid-center").hidden = showLandingPage;
+    document.getElementById("grid-viewer").hidden = showLandingPage;
+    document.getElementById("place-order-button").hidden = showLandingPage;
 }
 
 function makeAndRenderComponents(){
     Flavor.fetchAndMakeFlavors()
     ToppingType.fetchAndMakeToppingTypes()
-    BaseType.fetchAndMakeBaseTypes()
+    BaseType.fetchAndMakeBaseTypes()    
+}
+
+placeOrderButton = document.getElementById("place-order-button");
+placeOrderButton.addEventListener("click", placeOrderWithAllComponents);
+
+function placeOrderWithAllComponents(){
+
+    let orderId = document.getElementById("container").getAttribute("data-order-id")
+
+    Order.fetchPlaceOrder(orderId);
+    toggleLandingBuilderView(true)
+    document.getElementById("get-started-button").hidden = true
+    document.getElementById("grid-landing").innerHTML += `<h1>Thanks for your order!</h1>`
+    document.getElementsByTagName("form")[0].hidden = true
+    
+
 }

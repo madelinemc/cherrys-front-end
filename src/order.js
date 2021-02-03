@@ -30,8 +30,30 @@ class Order {
         })
     }
 
-    static fetchPlaceOrder(){
-        
-    }
+    static fetchPlaceOrder(id){
+
+        fetch("http://localhost:3000/orders"+`/${id}`, {
+            method: "PATCH",
+            headers: { 
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                
+            })
+        })
+    };
+
+
+    static fetchCancelOrder(id){
+
+        fetch("http://localhost:3000/orders"+`/${id}`, {
+            method: "DELETE",
+            headers: { 
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+        })
+    };
     
 }
