@@ -114,21 +114,81 @@ function placeOrderWithAllComponents(){
     //after place order - grab all children of view div and iterate over them, firing off fetch post requests to create all scoop, topping, base in the placed order
     let itemsInOrder = document.querySelector('#grid-viewer').children
 
-    itemsInOrder.forEach(item => {
+    for (item of itemsInOrder) {
+
+        let itemRubyId = item.getAttribute("data-id")
+        console.log(item)
+        
         switch(item.getAttribute("data-class")) {
             case "BaseType":
-                //code
+                fetchCreateBase(orderId, itemRubyId)
                 break;
             case "Flavor":
-                //code
+                fetchCreateScoop(orderId, itemRubyId)
                 break;
             case "ToppingType":
-                //code
+                fetchCreateTopping(orderId, itemRubyId)
                 break;
             //default:
         }       
 
-    });
-    
+    }
+}
 
+//move to separate classes?
+function fetchCreateBase(orderId, itemRubyId){
+
+    fetch("http://localhost:3000/bases", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+         },
+        body: JSON.stringify({
+            order_id: orderId,
+            base_type_id: itemRubyId
+        }) 
+    })
+    .then(resp=> resp.json())
+    .then(function(resp){
+    })
+
+}
+
+function fetchCreateScoop(orderId, itemRubyId){
+
+    fetch("http://localhost:3000/scoops", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+         },
+        body: JSON.stringify({
+            order_id: orderId,
+            flavor_id: itemRubyId
+        }) 
+    })
+    .then(resp=> resp.json())
+    .then(function(resp){
+    })
+    
+}
+
+function fetchCreateTopping(orderId, itemRubyId){
+
+    fetch("http://localhost:3000/toppings", {
+        method: "POST",
+        headers: { 
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+         },
+        body: JSON.stringify({
+            order_id: orderId,
+            topping_type_id: itemRubyId
+        }) 
+    })
+    .then(resp=> resp.json())
+    .then(function(resp){
+    })
+    
 }

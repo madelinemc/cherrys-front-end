@@ -27,7 +27,7 @@ class Flavor{
         .then(function(){
             Flavor.all.forEach(flavor => {
                 gridScoopBuilder.innerHTML += `
-                <img id="${flavor.name}" data-class="Flavor"draggable="true" ondragstart="onDragStart(event);" src="./public/images/${flavor.name}.png" class="builder-image">
+                <img id="${flavor.name}" data-id="${flavor.id}" data-class="Flavor"draggable="true" ondragstart="onDragStart(event);" src="./public/images/${flavor.name}.png" class="builder-image">
                 `
             })
         })
