@@ -26,7 +26,7 @@ class BaseType {
         .then(function(){
             BaseType.all.forEach(baseType => {
                 gridBaseBuilder.innerHTML += `
-                <img id="${baseType.name}" draggable="true" ondragstart="onDragStart(event);" src="./public/images/${baseType.name}.png" class="builder-image">
+                <img id="${baseType.name}" data-class="BaseType"draggable="true" ondragstart="onDragStart(event);" src="./public/images/${baseType.name}.png" class="builder-image">
                 `
             })
         })

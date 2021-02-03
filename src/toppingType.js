@@ -27,7 +27,7 @@ class ToppingType {
         .then(function(){
             ToppingType.all.forEach(toppingType => {
                 gridToppingBuilder.innerHTML += `
-                <img id="${toppingType.name}" draggable="true" ondragstart="onDragStart(event);" src="./public/images/${toppingType.name}.png" class="builder-image">
+                <img id="${toppingType.name}" data-class="ToppingType" draggable="true" ondragstart="onDragStart(event);" src="./public/images/${toppingType.name}.png" class="builder-image">
                 `
             })
         })

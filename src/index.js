@@ -104,10 +104,31 @@ function placeOrderWithAllComponents(){
     let orderId = document.getElementById("container").getAttribute("data-order-id")
 
     Order.fetchPlaceOrder(orderId);
-    toggleLandingBuilderView(true)
+    toggleLandingBuilderView(true);
+
+    //reset view:
     document.getElementById("get-started-button").hidden = true
     document.getElementById("grid-landing").innerHTML += `<h1>Thanks for your order!</h1>`
     document.getElementsByTagName("form")[0].hidden = true
+
+    //after place order - grab all children of view div and iterate over them, firing off fetch post requests to create all scoop, topping, base in the placed order
+    let itemsInOrder = document.querySelector('#grid-viewer').children
+
+    itemsInOrder.forEach(item => {
+        switch(item.getAttribute("data-class")) {
+            case "BaseType":
+                //code
+                break;
+            case "Flavor":
+                //code
+                break;
+            case "ToppingType":
+                //code
+                break;
+            //default:
+        }       
+
+    });
     
 
 }
