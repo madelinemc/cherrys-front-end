@@ -80,7 +80,9 @@ body {
     grid-column: 3 / 4;
     grid-row-start: 2;
     grid-row-end: 5;
-    background-color: #44d38e;
+    background: #fbfbfb;
+    border-radius: 8px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
 }
 
 .footer {

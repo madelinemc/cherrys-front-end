@@ -29,5 +29,9 @@ class Order {
             document.getElementById("container").setAttribute("data-order-id", `${order.id}`)
         })
     }
+
+    static fetchPlaceOrder(){
+        
+    }
     
 }
