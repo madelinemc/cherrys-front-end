@@ -7,6 +7,8 @@ Cherry's was created for Flatiron School's phase 4 project as a playful and inte
 * Ruby on Rails as an API
 * Active Record
 * Postgres database
+* JavaScript
+* JavaScript Drag and Drop API
 
 ## Installation:
 1. Follow the directions to set up and run the backend server: [Cherry's - Back-End](https://github.com/madelinemc/cherrys-back-end)
