@@ -71,9 +71,14 @@ function fetchMakeNewCustomerAndOrder() {
 
     .then(resp=> resp.json())
     .then(function(json){
-        customer = new Customer(json.id, json.name, json.phone_number)
-        document.getElementById("container").setAttribute("data-customer-id", `${customer.id}`);
-        console.log(customer.id)
+        debugger
+        if (json["phone_number"][0] ===  "has already been taken") {
+            alert("Seems like this number has been used before, please retype the correct phone number!");
+        } else {
+            customer = new Customer(json.id, json.name, json.phone_number)
+            document.getElementById("container").setAttribute("data-customer-id", `${customer.id}`);
+        }
+
     })
     .then(function(){
         Order.fetchMakeNewOrder() 
