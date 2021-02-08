@@ -8,10 +8,6 @@ class ToppingType {
         ToppingType.all.push(this)
     }
 
-    static test(){
-        console.log("if you can see this, topping types class is working")
-    }
-
    static fetchAndMakeToppingTypes(){
 
         let gridToppingBuilder = document.getElementById("topping-container")

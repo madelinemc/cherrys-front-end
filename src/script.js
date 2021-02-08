@@ -1,6 +1,5 @@
 function onDragStart(event) {
     event.dataTransfer.setData('text/plain', event.target.id);
-    event.dataTransfer.dropEffect = "copy"; //relook at this
 }
 
 function onDragOver(event) {
@@ -16,7 +15,7 @@ function onDrop(event) {
 
         const draggableElement = document.getElementById(id)
         const dropzone = event.target
-        dropzone.appendChild(draggableElement)
+        dropzone.appendChild(draggableElement.cloneNode(true))
 
     } else {
         event.preventDefault()

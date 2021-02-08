@@ -5,10 +5,6 @@ class Order {
         this.timeOrdered = timeOrdered;
     }
 
-    static test(){
-        console.log("if you can see this, order class is working")
-    }
-
     static fetchMakeNewOrder(){
 
         let customerIdValue = document.getElementById("container").getAttribute("data-customer-id")

@@ -8,10 +8,6 @@ class Flavor{
         Flavor.all.push(this)
     }
 
-    static test(){
-        console.log("if you can see this, flavor class is working")
-    }
-
     static fetchAndMakeFlavors(){
 
         let gridScoopBuilder = document.getElementById("scoop-container")

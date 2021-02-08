@@ -8,10 +8,6 @@ class BaseType {
         BaseType.all.push(this)
     }
 
-    static test(){
-        console.log("if you can see this, base types class is working")
-    }
-
    static fetchAndMakeBaseTypes(){
 
         let gridBaseBuilder = document.getElementById("base-container")

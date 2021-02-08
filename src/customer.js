@@ -5,8 +5,5 @@ class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    static test(){
-        console.log("if you can see this, appliance class is working")
-    }
     
 }
