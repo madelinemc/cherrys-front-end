@@ -197,3 +197,34 @@ function fetchCreateTopping(orderId, itemRubyId){
     })
     
 }
+
+//create button in index.html
+//find button
+let darkModeButton = document.getElementById('dark-mode-button')
+//add event listener to button for click
+darkModeButton.addEventListener("click", toggleView);
+//on the click run toggleView function
+
+//changing CSS class works:
+function toggleView(e) {
+    //find the body element 
+    let backgroundBody = document.body
+    console.log("click happened")
+    //when the event is registered on the target, use toggle() to switch between show("dark-mode") and hide("dark-mode")
+    e.target
+    backgroundBody.classList.toggle("dark-mode");
+}
+
+//setting background directly works too:
+// function toggleView(e) {
+//     let backgroundBody = document.body
+
+//     e.target 
+//     // debugger
+//     if (backgroundBody.style.background === "rgb(0, 0, 128)") {
+//         backgroundBody.style.background = "linear-gradient(225deg, rgba(250,196,254,1) 38%, rgba(244,229,255,1) 100%)";
+//     } else {
+//         backgroundBody.style.background = "rgb(0, 0, 128)"
+
+//     }
+// }
